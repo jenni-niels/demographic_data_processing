@@ -40,4 +40,18 @@ ga_votes_per_party["PREC"] = (ga_votes_per_party["county"] + ", " + ga_votes_per
 ## Check state wide sums against SOS Website: matches
 ga_votes_per_party.sum()
 
+cnty_qa = pd.read_csv("data/ga_sos_county_pres_votes.csv", header=[0,1])
+cnty_qa.columns = cnty_qa.columns.to_flat_index()
+cnty_qa = cnty_qa.rename(columns={('Unnamed: 0_level_0', 'County'): "county",
+                        ('Unnamed: 5_level_0', 'Total Votes'): "PRES20R", 
+                        ('Unnamed: 10_level_0', 'Total Votes'): "PRES20D", 
+                        ('Unnamed: 15_level_0', 'Total Votes'): "PRES20L"},)[["county", "PRES20R", "PRES20D", "PRES20L"]].drop(159).set_index("county")
+
+ga_cnty_votes = ga_votes_per_party.groupby("county").sum()
+
+## Check that it matches at the county level against SoS data.
+print((cnty_qa - ga_cnty_votes).sum())
+
+ga_cnty_votes.to_csv("data/ga_pres20_county_votes.csv")
+
 ga_votes_per_party.to_csv("data/ga_pres20_precinct_votes.csv", index=False)
