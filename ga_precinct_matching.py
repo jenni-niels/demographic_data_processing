@@ -46,3 +46,11 @@ print((test_exact_match.shape[0] + test_exact_match_x.shape[0] + test_exact_matc
 pres20votes_w_match = pd.concat([test_exact_match,test_exact_match_x,test_exact_match_y], ignore_index=True)
 
 pres20votes_no_match = pres20votes.set_index("PREC").loc[pres20votes.set_index("PREC").index.difference(pres20votes_w_match.PREC)].reset_index()
+
+
+pres20votesMatchCol = pres20votes.set_index("PREC")
+pres20votesMatchCol["PREC_match"] = pres20votes_w_match.set_index("PREC").PREC_y
+
+pres20votesMatchCol.reset_index(inplace=True)
+
+pres20votesMatchCol.to_csv("data/ga_pres20_precinct_votes_precinct_matches.csv", index=False)
