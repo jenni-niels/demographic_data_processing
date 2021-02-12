@@ -3,7 +3,8 @@
 ## Notes by County
 
 ### Barrow
-* Matched by number.  Polling places seem to have been moved due to covid?
+* Matched by number.  Polling places seem to have been merged due to covid?
+* merged matched by map in refs
 
 ### Bartow
 * Hamilton Crossing appears to be a new precinct, doesn't appear in map from county, though is listed on their polling locations.  might use polling location address to merge with another precinct?
@@ -41,6 +42,7 @@
 * Reconcile with county change records in ref folder, and between 2016 list there with list
     on [current website](https://www.columbiacountyga.gov/county/voting-and-results/polling-locations).
 * Harlem Branch Library split to create Harlem Sr Cntr and Mt. Moriah Bpt Chr
+* Blanchard Park and MTZ Col Fire Dept. 4 merged to Blanchard Park
 
 ### Cowetta 
 * Arts Centre and Jefferson Parkway were merged to create Newnan Centre.  Cross reference shapes in [County GIS](https://cowetamaps.maps.arcgis.com/apps/PanelsLegend/index.html?appid=3586b99a029247d69f69816da79813ac) with 2018 shapes.
@@ -51,6 +53,7 @@
 * DEKALB, CLARKSTON COMMUNITY CENTER split from CLARKSTON, the bit of Shaw-Robert Shaw Elem that was split appears to be mostly commercial and not residential
 * DEKALB, DECATUR was split form Oakhurst
 * DEKALB, KING-ML KING JR HIGH was renamed Snapfinger Rd.
+* Dekalb renfroe middle merged with oakhurst
 
 ### Douglas
 * DOUGLAS, COLONIAL HILLS renamed DOUGLAS, ATLANTA WEST PENTECOSTAL
@@ -94,6 +97,11 @@
 ### Paulding
 * Scrambled mess of a bunch of splits.  Did my best to map new to old using this [county's map](https://www.paulding.gov/DocumentCenter/View/9963/WEBPOLLINGLOCATIONS-FOR-WEB?bidId=)
 
+### Randolph
+* [News article](https://www.walb.com/2019/07/11/randolph-elections-board-votes-consolidate-precincts/)
+* Carnegie merged with Cuthburt Courthouse
+* 4th district and fountain bridge merged with shellman
+
 ### Sumter
 * Matched by precinct number using county [website list](https://www.sumtercountyga.us/DocumentCenter/View/1354/SUMTER-COUNTY-PRECINCTS?bidId=)
 * SUMTER, 28 CHAMBLISS renamed Browns Mill
@@ -102,12 +110,25 @@
 * Match by location of polling place and only one remaining
 * Ellabelle -> Little Ochlocknee baptist church
 
+### Towns
+* No documentation on county website.
+* Other precincts didn't change names and tate city only borders macedonia. (merged?)
 
 ## To merge in shapefile
+* Barrow
+    * 03 + 12 -> 03
+    * 02 + 15 -> 02
+    * 04 + 14 -> 04
+    * 06 + 10 + 13 -> 13
+    * 11 + 16 -> 16
+    * 05 + 07 -> 05
+    * 08 + 09 -> 08
 * Chandler
     * (CANDLER, CANDLER - 1736 + CANDLER, METTER - 1685) -> CANDLER, JACK STRICKLAND COMM CENTER
 * Clayton:
     * (CLAYTON, JONESBORO 1 + CLAYTON, JONESBORO 17) -> CLAYTON, JONESBORO 1-17-19
+* Columbia
+    * Blanchard Park + MTZ Fire 4 -> Blanchard Park
 * Coweta
     * (COWETA, ARTS CENTRE + COWETA, JEFFERSON PARKWAY) -> COWETA, NEWNAN CENTRE
 * Oconee
